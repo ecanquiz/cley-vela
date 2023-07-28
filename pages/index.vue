@@ -1149,7 +1149,8 @@ const triggerMobileNavItem = (id) => {
     <div
       class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10"
     >
-      <a href="/post" class="shadow">
+      <!--a href="/post" class="shadow"-->
+      <a href="/" class="shadow">
         <div          
           class="bg-[url('/assets/img/post-01.png')] group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
         >
@@ -1171,7 +1172,8 @@ const triggerMobileNavItem = (id) => {
           >
         </div>
       </a>
-      <a href="/post" class="shadow">
+      <!--a href="/post" class="shadow"-->
+      <a href="/" class="shadow">
         <div          
           class="bg-[url('/assets/img/post-02.png')] group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
         >
@@ -1193,7 +1195,8 @@ const triggerMobileNavItem = (id) => {
           >
         </div>
       </a>
-      <a href="/post" class="shadow">
+      <!--a href="/post" class="shadow"-->
+      <a href="/" class="shadow">
         <div          
           class="bg-[url('/assets/img/post-03.png')] group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
         >
