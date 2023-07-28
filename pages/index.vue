@@ -1,8 +1,14 @@
 <script setup>
-import {ref} from "vue"
+import {ref, computed} from "vue"
+
+const config = useRuntimeConfig()
 //useHead({title: "Cartrader",});
 
 const mobileMenu = ref(false)
+
+const myInput = ref(1)
+
+const myComputed = computed(()=>myInput.value*500)
 
 const triggerNavItem = (num = 100)=>{
   window.scrollTo({
@@ -18,7 +24,6 @@ const triggerMobileNavItem = (id) => {
   triggerNavItem(id)
 
 }
-
 </script>
 
 <template>
@@ -162,8 +167,7 @@ const triggerMobileNavItem = (id) => {
 
 <div>
 <div
-  class="relative bg-cover bg-center bg-no-repeat py-8"
-  style="background-image: url(/assets/img/bg-hero.jpg)"
+  class="bg-[url('/assets/img/bg-hero.jpg')] relative bg-cover bg-center bg-no-repeat py-8"
 >
   <div
     class="absolute inset-0 z-20 bg-gradient-to-r from-hero-gradient-from to-hero-gradient-to bg-cover bg-center bg-no-repeat"
@@ -1006,7 +1010,7 @@ const triggerMobileNavItem = (id) => {
 
 <div
   class="bg-cover bg-top bg-no-repeat pb-16 md:py-16 lg:py-24"
-  style="background-image: url(/assets/img/experience-figure.png)"
+  style="background-image: url(~assets/img/experience-figure.png)"
   id="statistics"
 >
   <div class="container">
@@ -1146,9 +1150,8 @@ const triggerMobileNavItem = (id) => {
       class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10"
     >
       <a href="/post" class="shadow">
-        <div
-          style="background-image: url(/assets/img/post-01.png)"
-          class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
+        <div          
+          class="bg-[url('/assets/img/post-01.png')] group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
         >
           <span
             class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
@@ -1169,9 +1172,8 @@ const triggerMobileNavItem = (id) => {
         </div>
       </a>
       <a href="/post" class="shadow">
-        <div
-          style="background-image: url(/assets/img/post-02.png)"
-          class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
+        <div          
+          class="bg-[url('/assets/img/post-02.png')] group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
         >
           <span
             class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
@@ -1192,9 +1194,8 @@ const triggerMobileNavItem = (id) => {
         </div>
       </a>
       <a href="/post" class="shadow">
-        <div
-          style="background-image: url(/assets/img/post-03.png)"
-          class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
+        <div          
+          class="bg-[url('/assets/img/post-03.png')] group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
         >
           <span
             class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
@@ -1326,8 +1327,7 @@ const triggerMobileNavItem = (id) => {
 
 
 <div
-  class="h-72 bg-cover bg-center bg-no-repeat sm:h-64 md:h-72 lg:h-96"
-  style="background-image: url(/assets/img/map.png)"
+  class="bg-[url('/assets/img/map.png')] h-72 bg-cover bg-center bg-no-repeat sm:h-64 md:h-72 lg:h-96"
 ></div>
 
 
@@ -1342,8 +1342,7 @@ const triggerMobileNavItem = (id) => {
 
 
 <div
-  class="relative bg-primary bg-cover bg-center bg-no-repeat py-16 bg-blend-multiply lg:py-24"
-  style="background-image: url(/assets/img/bg-cta.jpg)"
+  class="bg-[url('/assets/img/bg-cta.jpg')] relative bg-primary bg-cover bg-center bg-no-repeat py-16 bg-blend-multiply lg:py-24"  
 >
   <div class="container relative z-30">
     <h3
@@ -1432,9 +1431,11 @@ const triggerMobileNavItem = (id) => {
 
 
 
-
-
-
+  <div class="bg-gray-400">
+  <span> Introduce tu monto aquí -> </span>
+  <input type="text" v-model="myInput" /> <span> x 500 = </span>
+  <span class="bg-white p-3"> {{myComputed}} </span>
+  </div>
 
   </div>
 </template>
