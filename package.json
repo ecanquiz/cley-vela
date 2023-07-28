@@ -3,25 +3,24 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "deploy": "gh-pages -d dist",
-    "start": "node .output/server/index.mjs"
+    "dev": "nuxi dev",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "postinstall": "nuxi prepare",
+    "deploy": "gh-pages --dotfiles -d .output/public"
   },
   "overrides": {
     "vue": "latest"
   },
-  "devDependencies": {    
+  "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.17.0",
+    "gh-pages": "^4.0.0",    
     "nuxt": "^3.6.5"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.11",
-    "gh-pages": "^5.0.0",
+    "@pinia/nuxt": "^0.4.11",    
     "pinia": "^2.1.6"
   }
 }

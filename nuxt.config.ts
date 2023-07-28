@@ -1,18 +1,15 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false,
-  target: "static",  
   app: {
-    baseURL: '/',
+    baseURL: '/cley-vela/',
     head: {
       link: [
         { rel: 'stylesheet', type:"text/css", href: 'https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' },
       ]
     }
-  },  
+  },
   css: [`assets/styles/main.min.css`],
   devtools: { enabled: true },
-    modules: [
+  modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt'
   ]

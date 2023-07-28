@@ -1,68 +1,27 @@
-# cley-vela
-cley-vela
+Here is how to deploy a Nuxt 3 project on GitHub Pages:
 
-# Nuxt 3 Minimal Starter
+# How to
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+1. Install dev dependency `gh-pages`
+2. Add the script `"deploy": "gh-pages -d dist"` in package.json file
+3. Specifiy app baseURL in nuxt.config.ts.
+4. Generate with `npm run generate`
+5. Deploy with `npm run deploy`
 
-## Setup
+Router config:
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
+```ts
+export default defineNuxtConfig({
+  app: {
+    baseURL: '/nuxt-github-pages/' // baseURL: '/<repository>/'
+  }
+}
 ```
 
-## Development Server
+# What it does
 
-Start the development server on `http://localhost:3000`:
+The dependency will copy your dist content to a specific `gh-pages` branch that will be served by GitHub Pages. If you go to your Settings/Pages, you’ll see the active branch for your site.
 
-```bash
-# npm
-npm run dev
+The site is accessible on `https://<username>.github.io/<repository>/`. For this repository, the site is https://lucpotage.github.io/nuxt-github-pages/.
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-https://github.com/lucpotage/nuxt-github-pages/tree/main
+You can rely on GitHub Actions too. More info here: https://medium.com/front-end-weekly/ci-cd-with-github-actions-to-deploy-on-github-pages-73e225f8f131
