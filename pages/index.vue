@@ -1,5 +1,6 @@
 <script setup>
 import {ref, computed} from "vue"
+import { SocialChat } from 'vue-social-chat'
 
 const config = useRuntimeConfig()
 //useHead({title: "Cartrader",});
@@ -24,6 +25,64 @@ const triggerMobileNavItem = (id) => {
   triggerNavItem(id)
 
 }
+
+
+
+/*const attendants = [
+      {
+        //app: 'whatsapp',
+        app: 'whatsapp',
+        label: 'Technical support',
+        name: 'Ernest Canquiz',
+        //number: '5581983383532',
+        number: '584127029133',
+        avatar: {
+          src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
+          alt: 'Alan Ktquez avatar'
+        }
+      },
+      // ...
+    ]
+    
+    
+const attendants1 = [
+      {
+        //app: 'whatsapp',
+        app: 'telegram',
+        label: 'Technical support',
+        name: 'ecanquiz',
+        //number: '5581983383532',
+        number: '584127029133',
+        avatar: {
+          src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
+          alt: 'Alan Ktquez avatar'
+        }
+      },
+      // ...
+    ]*/
+
+const attendants =[
+      {
+        app: 'telegram',
+        label: 'Support',
+        name: 'Alan Ktquez',
+        username: 'ktquez',
+        avatar: {
+          src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
+          alt: 'Alan Ktquez avatar'
+        }
+      },
+      {
+        app: 'telegram',
+        label: 'Sales',
+        name: 'Alexia Chapman',
+        username: 'ecanquiz',
+        avatar: {
+          src: 'https://randomuser.me/api/portraits/women/63.jpg',
+          alt: 'Alexia Chapman avatar'
+        }
+      }
+    ]
 </script>
 
 <template>
@@ -1430,7 +1489,27 @@ const triggerMobileNavItem = (id) => {
 
 
 
-
+<div class="bg-gray-500">
+    <SocialChat
+      icon
+      :attendants="attendants"
+      id="social-button"
+    >
+      <template #header>
+        <p>Click on one of our attendants below to chat on WhatsApp.</p>
+      </template>
+      <template #button>
+        <img
+          src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
+          alt="icon whatsapp"
+          aria-hidden="true"
+        >      
+      </template>
+      <template #footer>
+        <small>Opening hours: 8am to 6pm</small>
+      </template>
+    </SocialChat>
+</div>
 
 
 
@@ -1443,3 +1522,16 @@ const triggerMobileNavItem = (id) => {
   </div>
 </template>
   
+<style>
+:root #social-button {
+  --vsc-bg-header: orange;
+  --vsc-bg-footer: #fafafa;
+  --vsc-text-color-header: yellow;
+  --vsc-text-color-footer: green;
+  --vsc-bg-button: pink;
+  --vsc-text-color-button: purple;
+  --vsc-outline-color: #333;
+  --vsc-border-color-bottom-header: teal;
+  --vsc-border-color-top-footer: #f3f3f3;
+}
+</style>
