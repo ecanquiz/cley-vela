@@ -17,11 +17,12 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.17.0",
-    "gh-pages": "^4.0.0",    
+    "gh-pages": "^4.0.0",
     "nuxt": "^3.6.5"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.11",    
-    "pinia": "^2.1.6"
+    "@pinia/nuxt": "^0.4.11",
+    "pinia": "^2.1.6",
+    "vue-social-chat": "^1.0.0"
   }
 }
