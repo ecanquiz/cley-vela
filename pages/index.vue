@@ -1,6 +1,5 @@
 <script setup>
 import {ref, computed} from "vue"
-import { SocialChat } from 'vue-social-chat'
 
 const config = useRuntimeConfig()
 //useHead({title: "Cartrader",});
@@ -61,7 +60,7 @@ const attendants1 = [
       // ...
     ]*/
 
-const attendants =[
+/*const attendants =[
       {
         app: 'telegram',
         label: 'Support',
@@ -82,7 +81,7 @@ const attendants =[
           alt: 'Alexia Chapman avatar'
         }
       }
-    ]
+    ]*/
 </script>
 
 <template>
@@ -1441,7 +1440,7 @@ const attendants =[
 
 
 
- <div class="bg-primary">
+ <!--div class="bg-primary">
   <div class="container flex flex-col justify-between py-6 sm:flex-row">
     <p class="text-center font-body text-white md:text-left">
       © Copyright 2022. All right reserved, ATOM.
@@ -1466,7 +1465,7 @@ const attendants =[
       </a>
     </div>
   </div>
-</div>
+</div-->
 
 
 
@@ -1489,27 +1488,7 @@ const attendants =[
 
 
 
-<div class="bg-gray-500">
-    <SocialChat
-      icon
-      :attendants="attendants"
-      id="social-button"
-    >
-      <template #header>
-        <p>Click on one of our attendants below to chat on WhatsApp.</p>
-      </template>
-      <template #button>
-        <img
-          src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
-          alt="icon whatsapp"
-          aria-hidden="true"
-        >      
-      </template>
-      <template #footer>
-        <small>Opening hours: 8am to 6pm</small>
-      </template>
-    </SocialChat>
-</div>
+
 
 
 
@@ -1517,6 +1496,12 @@ const attendants =[
   <span> Introduce tu monto aquí -> </span>
   <input type="text" v-model="myInput" /> <span> x 500 = </span>
   <span class="bg-white p-3"> {{myComputed}} </span>
+  </div>
+  
+  <div class="bg-gray-500">
+      <client-only>
+    <Whatsappx />
+        </client-only>
   </div>
 
   </div>
