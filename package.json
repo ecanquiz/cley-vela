@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
-    "pinia": "^2.1.6",
-    "vue-social-chat": "^1.0.0"
+    "pinia": "^2.1.6"
   }
 }
