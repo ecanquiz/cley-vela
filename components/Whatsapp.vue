@@ -1,9 +1,21 @@
 <script setup>
 import {ref} from "vue"
 
+const props = defineProps({
+  amounts: Object  
+}) 
+
+//{
+//      USDBalance: myInput.value
+//      PesosToReceive: myComputed.value
+////
+  
 const phone = '+5491173642809'
 const myTextarea = ref("")
-    
+
+myTextarea.value= `Quiero vender ${props.amounts.USDBalance} dolares para recibir ${props.amounts.PesosToReceive} pesos.`
+
+
 const enviar = () => {
   let mensaje = myTextarea.value
   if(mensaje.length > 0){
@@ -16,7 +28,7 @@ const enviar = () => {
     }  
 }
     
-
+console.log(props.amounts)
 
 </script>
 <template>
@@ -43,7 +55,9 @@ const enviar = () => {
             </div>
             <div class="conver rounded-b-lg">
                 <div class="converMessage">
-                    ¡Cambia el número de teléfono por el número al que quieras enviar el mensaje! Si no lo haces, tendrás que elegir un contacto de tu agenda 😉
+                    Hola !!
+                    <br>
+                    Qué quieres hacer ?? 😉
                 </div>
 
                 <div v-if="myTextarea" class="converMessageUser">
@@ -67,7 +81,7 @@ const enviar = () => {
     font-family: 'Open Sans', sans-serif;
 }
 .body{
-    background-color:#00BFA5;
+    background-color:#f0f0f0;
 }
 h1{
     text-align:center;
@@ -157,9 +171,9 @@ h1{
     border-radius:15px;
     background:white;
     border:none;
-    height:25px;
+    height:75px;
     font-size:1em;
-    resize: none;
+    /*resize: none;*/
     overflow:hidden;
     outline:none;
     box-shadow: 1px 1px 1px silver;
@@ -173,6 +187,7 @@ h1{
     display:flex;
     align-items:center;
     justify-content:center;
+    cursor: pointer;
 }
 
 footer{
