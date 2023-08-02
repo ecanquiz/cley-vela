@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from "vue"
 
-const config = useRuntimeConfig()
+//const config = useRuntimeConfig()
 //useHead({title: "Cartrader",});
 
 const mobileMenu = ref(false)
@@ -50,6 +50,19 @@ const sell = (payload) => {
             @click="triggerNavItem(800)"
             class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
             >About</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+
+        <li class="group pl-6">
+          
+          <NuxtLink
+            to="/calculator"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Calculadora</NuxtLink
           >
           
           <span
@@ -240,7 +253,7 @@ const sell = (payload) => {
 
 
 <div class="bg-grey-50" id="about">
-  <About />
+  <HomeAbout />
 </div>
 
 
@@ -268,6 +281,16 @@ const sell = (payload) => {
           >About</span
         >
         
+      </li>
+      
+      <li class="py-2">
+          
+          <NuxtLink
+            to="/calculator"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Calculadora</NuxtLink
+          >
+
       </li>
       
       <li class="py-2">
@@ -345,19 +368,19 @@ const sell = (payload) => {
 </div>
 
 <div class="container py-16 md:py-20" id="services">
-  <Services />
+  <HomeServices />
 </div>
 
 <div class="container py-16 md:py-20" id="portfolio">
-  <Portfolio />
+  <HomePortfolio />
 </div>
 
 <div class="bg-grey-50" id="clients">
-  <Clients />
+  <HomeClients />
 </div>
 
 <div class="container py-16 md:py-20" id="work">
-  <Work />
+  <HomeWork />
 </div>
 
 <div
@@ -365,16 +388,16 @@ const sell = (payload) => {
   style="background-image: url(~assets/img/experience-figure.png)"
   id="statistics"
 >
-  <Statistics />
+  <HomeStatistics />
 </div>
 
 <div class="bg-grey-50" id="blog">
-  <Blog />
+  <HomeBlog />
 </div>
 
 
 <div class="container py-16 md:py-20" id="contact">
-  <Contact />
+  <HomeContact />
 </div>
 
 
@@ -382,21 +405,10 @@ const sell = (payload) => {
   class="bg-[url('/assets/img/map.png')] h-72 bg-cover bg-center bg-no-repeat sm:h-64 md:h-72 lg:h-96"
 ></div>
 
-<Keep />
+<HomeKeep />
 
 
-
-
-
-<Calculator @sell="sell"/>
-  
-<div class="bg-gray-500" v-if="selling">
-  <client-only>
-    <Whatsapp :amounts="amounts"/>
-  </client-only>
-</div>
-
-<Foot />
+<LayoutFoot />
 
   </div>
   
