@@ -41,7 +41,7 @@ console.log(props.amounts)
                     <i class="fas fa-arrow-left"></i>
                 </div>
                 <div class="imagen">
-                    <img src="../assets/img/telegram/avatar.png"> 
+                    <img src="../../assets/img/telegram/avatar.png"> 
                 </div>
                 <div class="info">
                     <div class="tlf"><input type="text" name="telefono" value="+5491173642809"></div>
@@ -65,7 +65,7 @@ console.log(props.amounts)
                 </div>
                 <div class="message">
                     <textarea autofocus placeholder="Escribe un mensaje" v-model="myTextarea" rows="2"></textarea>
-                    <img class="enviar" src="../assets/img/telegram/send.png" alt="" @click="enviar">
+                    <img class="enviar" src="../../assets/img/telegram/send.png" alt="" @click="enviar">
                 </div>
             </div>
         </div>
