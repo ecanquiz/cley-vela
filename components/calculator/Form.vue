@@ -1,3 +1,15 @@
+<script setup>
+const props = defineProps({
+  amounts: Object  
+})
+
+const emit = defineEmits(['sell'])
+
+const sell = async () => {
+  emit('sell')
+}
+</script>
+
 <template>
   <div class="container flex flex-col items-center py-16 md:py-20 lg:flex-row">
     <div class="mb-2">
@@ -5,31 +17,26 @@
         class="font-header text-4xl font-semibold uppercase text-primary sm:text-4xl lg:text-4xl"
       >       
         Completa el formulario y cambia USD a Pesos Argentinos en menos de 30'
-      </h2>
-  
-  
-  
+      </h2>  
 <div class="p-5 m-auto w-full">  
   <form @submit.prevent="submit">
-  
-  
     <div class="relative z-0 w-full mb-6 group py-2">
-      <input type="text" name="floating_email" id="floating_email" class="form-input peer" placeholder=" " required />
+      <input type="text" v-model="props.amounts.fullName" id="floating_email" class="form-input peer" placeholder=" " required />
       <label for="floating_email" class="form-label">Nombre completo</label>
     </div>
 
     <div class="relative z-0 w-full mb-6 group py-2">
-      <input type="text" name="floating_email" id="floating_email" class="form-input peer" placeholder=" " required />
+      <input type="text" v-model="props.amounts.cellPhone" id="floating_email" class="form-input peer" placeholder=" " required />
       <label for="floating_email" class="form-label">Celular</label>
     </div>  
   
     <div class="relative z-0 w-full mb-6 group py-2">
-      <input type="number" name="floating_email" id="floating_email" class="form-input peer" placeholder=" " required />
+      <input type="number" id="floating_email" v-model="props.amounts.usd" class="form-input peer" placeholder=" " required />
       <label for="floating_email" class="form-label">Saldo USDT</label>
     </div>
 
     <div class="relative z-0 w-full mb-6 group py-2">
-      <input type="text" name="floating_email" id="floating_email" class="form-input peer" placeholder=" " required />
+      <input type="text" v-model="props.amounts.pesos" id="floating_email" class="form-input peer" placeholder=" " required />
       <label for="floating_email" class="form-label">Pesos a Recibir</label>
     </div>
 

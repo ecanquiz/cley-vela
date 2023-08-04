@@ -1,18 +1,12 @@
 <script setup>
-import {ref, computed} from "vue"
 
-const myInput = ref(10)
+const props = defineProps({
+  amounts: Object  
+})
 
-const myComputed = computed(()=>myInput.value*500)
+const emit = defineEmits(['fillForm'])
 
-const emit = defineEmits(['sell'])
-
-const sell = async () => {
-    emit('sell', {
-      USDBalance: myInput.value,
-      PesosToReceive: myComputed.value
-    })
-  }
+const fillForm = async () => emit('fillForm')
 </script>
 
 <template>  
@@ -44,7 +38,7 @@ const sell = async () => {
     type="number"
     class="peer m-0 block h-[58px] w-full md:w-1/2 rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-gray-400 focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"    
     placeholder=""
-    v-model="myInput"/>
+    v-model="amounts.usd"/>
   <label
     for="floatingInput"
     class="pointer-events-none absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-4 text-gray-500 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
@@ -58,13 +52,13 @@ const sell = async () => {
     class="relative text-gray-500"
     >Pesos a recibir</label
   ><br>
-  <span class="relative text-gray-700">$ {{myComputed}} </span>
+  <span class="relative text-gray-700">$ {{amounts.pesos}} </span>
 </div>   
 <br>
  
   <button
     class="mt-2 flex items-center justify-center rounded bg-primary px-8 py-3 font-header text-lg font-bold uppercase text-white hover:bg-grey-20"
-    @click="sell"
+    @click="fillForm"
     >
       Vender
     <i class="bx bx-chevron-right relative -right-2 text-3xl"></i>

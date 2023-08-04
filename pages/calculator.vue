@@ -1,33 +1,24 @@
 <script setup>
-import {ref} from "vue"
+const amounts = reactive({
+  fullName: '',
+  cellPhone: '',  
+  usd: 1,
+  pesos: computed(() => amounts.usd*500),
+  message: computed(() => `Quiero vender ${amounts.usd} dolares para recibir ${amounts.pesos} pesos.`)
+})
 
-//const config = useRuntimeConfig()
-//useHead({title: "Cartrader",});
+const {
+  mobileMenu,
+  triggerNavItem,
+  triggerNavItemMobile  
+} = useTriggerNav()
 
-const mobileMenu = ref(false)
+const showWhatsapp = ref(false)
 
-const selling = ref(false)
-
-const amounts = ref({})
-
-const triggerNavItem = (num = 100)=>{
-  window.scrollTo({
-    top: num,
-    //left: 100,
-    behavior: "smooth",
-  })
-  mobileMenu.value = false;
-};
-
-const triggerMobileNavItem = (id) => {
-  mobileMenu.value = false;
-  triggerNavItem(id)
-
-}
-
-const sell = (payload) => {
-  selling.value = true
-  amounts.value = payload  
+const fillForm = () => triggerNavItemMobile(2000)
+const sell = () => {
+  showWhatsapp.value = true
+  triggerNavItemMobile(5000)
 }
 </script>
 
@@ -176,20 +167,26 @@ const sell = (payload) => {
   </div>
 </div>
 
-<CalculatorCalculation @sell="sell"/>
+<CalculatorCalculation
+  :amounts="amounts"
+  @fillForm="fillForm"
+  
+/>
 
 <div class="bg-stone-200">
   <CalculatorHowWork />
 </div>
 
-<CalculatorForm />
-
- 
+<CalculatorForm
+  :amounts="amounts"
+  @sell="sell"
+/>
   
-  
-<div class="bg-gray-500" v-if="selling">
+<div class="bg-gray-500" v-if="showWhatsapp">
   <client-only>
-    <CalculatorWhatsapp :amounts="amounts"/>
+    <CalculatorWhatsapp
+      :amounts="amounts"
+    />
   </client-only>
 </div>
 
