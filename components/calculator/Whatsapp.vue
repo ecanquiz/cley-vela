@@ -3,12 +3,9 @@ const props = defineProps({
   amounts: Object  
 }) 
 
-
-const phone = '+5491173642809'
-
-
+const phone = '05491173642809'
 const messageSent = ref(props.amounts.message)
-const myTextarea = ref(`Mi nombre es ${props.amounts.fullName} y mi número de celular es ${props.amounts.cellPhone}.`)
+const myTextarea = ref(`Nombre: ${props.amounts.fullName}.\nCelular: ${props.amounts.cellPhone}.`)
 
 const enviar = () => {
   let mensaje = `${messageSent.value} ${myTextarea.value}`
@@ -20,6 +17,12 @@ const enviar = () => {
     }
   }
 }
+
+watch(props.amounts, (fullName) => {
+  myTextarea.value = `Nombre: ${props.amounts.fullName}.\nCelular: ${props.amounts.cellPhone}.`
+})
+
+
 </script>
 <template>
   
@@ -45,7 +48,7 @@ const enviar = () => {
             </div>
             <div class="conver rounded-b-lg">
                 <div class="converMessage">
-                    Hola !!
+                    Hola {{ props.amounts.fullName.split(' ')[0] }} !!
                     <br>
                     Qué quieres hacer ?? 😉
                 </div>
@@ -120,7 +123,7 @@ h1{
     margin-right:5px;
 }
 .whatsapp .conver {
-    background-image:url(../assets/img/telegram/wall.jpg);
+    background-image:url(../../assets/img/telegram/wall.jpg);
     display:flex;flex-direction:column;
     justify-content:space-between;
     padding:10px;
@@ -139,7 +142,7 @@ h1{
     border-radius: 5px 0px 5px 5px;
 }
 .conver > .converMessage{
-    background:#ffffff;
+    background:#e6e6e6;
     align-self:flex-start;
     width:240px;
     min-height:30px;    

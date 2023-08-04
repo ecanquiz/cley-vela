@@ -4,7 +4,7 @@ const amounts = reactive({
   cellPhone: '',  
   usd: 1,
   pesos: computed(() => amounts.usd*500),
-  message: computed(() => `Quiero vender ${amounts.usd} dolares para recibir ${amounts.pesos} pesos.`)
+  message: computed(() => `Quiero vender ${amounts.usd} USD para recibir ${amounts.pesos} pesos.`)
 })
 
 const {

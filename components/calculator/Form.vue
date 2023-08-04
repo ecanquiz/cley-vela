@@ -5,7 +5,7 @@ const props = defineProps({
 
 const emit = defineEmits(['sell'])
 
-const sell = async () => {
+const submit = async () => {
   emit('sell')
 }
 </script>
@@ -32,7 +32,7 @@ const sell = async () => {
   
     <div class="relative z-0 w-full mb-6 group py-2">
       <input type="number" id="floating_email" v-model="props.amounts.usd" class="form-input peer" placeholder=" " required />
-      <label for="floating_email" class="form-label">Saldo USDT</label>
+      <label for="floating_email" class="form-label">Saldo USD</label>
     </div>
 
     <div class="relative z-0 w-full mb-6 group py-2">
@@ -41,8 +41,7 @@ const sell = async () => {
     </div>
 
     <button
-    class="mt-2 flex items-center justify-center rounded bg-primary px-8 py-3 font-header text-lg font-bold uppercase text-white hover:bg-grey-20"
-    @click="sell"
+    class="mt-2 flex items-center justify-center rounded bg-primary px-8 py-3 font-header text-lg font-bold uppercase text-white hover:bg-grey-20"    
     >
       Vender
     <i class="bx bx-chevron-right relative -right-2 text-3xl"></i>    
