@@ -4,26 +4,15 @@ import {ref} from "vue"
 //const config = useRuntimeConfig()
 //useHead({title: "Cartrader",});
 
-const mobileMenu = ref(false)
+const {
+  mobileMenu,
+  triggerNavItem,
+  triggerNavItemMobile  
+} = useTriggerNav()
 
 const selling = ref(false)
 
 const amounts = ref({})
-
-const triggerNavItem = (num = 100)=>{
-  window.scrollTo({
-    top: num,
-    //left: 100,
-    behavior: "smooth",
-  })
-  mobileMenu.value = false;
-};
-
-const triggerMobileNavItem = (id) => {
-  mobileMenu.value = false;
-  triggerNavItem(id)
-
-}
 
 const sell = (payload) => {
   selling.value = true
@@ -306,7 +295,7 @@ const sell = (payload) => {
       <li class="py-2">
         
         <span
-          @click="triggerMobileNavItem('#portfolio')"
+          @click="triggerNavItemMobile('#portfolio')"
           class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
           >Portfolio</span
         >
@@ -316,7 +305,7 @@ const sell = (payload) => {
       <li class="py-2">
         
         <span
-          @click="triggerMobileNavItem('#clients')"
+          @click="triggerNavItemMobile('#clients')"
           class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
           >Clients</span
         >
@@ -326,7 +315,7 @@ const sell = (payload) => {
       <li class="py-2">
         
         <span
-          @click="triggerMobileNavItem('#work')"
+          @click="triggerNavItemMobile('#work')"
           class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
           >Work</span
         >
@@ -336,7 +325,7 @@ const sell = (payload) => {
       <li class="py-2">
         
         <span
-          @click="triggerMobileNavItem('#statistics')"
+          @click="triggerNavItemMobile('#statistics')"
           class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
           >Statistics</span
         >
@@ -346,7 +335,7 @@ const sell = (payload) => {
       <li class="py-2">
         
         <span
-          @click="triggerMobileNavItem('#blog')"
+          @click="triggerNavItemMobile('#blog')"
           class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
           >Blog</span
         >
@@ -356,7 +345,7 @@ const sell = (payload) => {
       <li class="py-2">
         
         <span
-          @click="triggerMobileNavItem('#contact')"
+          @click="triggerNavItemMobile('#contact')"
           class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
           >Contact</span
         >

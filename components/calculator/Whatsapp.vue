@@ -1,35 +1,25 @@
 <script setup>
-import {ref} from "vue"
-
 const props = defineProps({
   amounts: Object  
 }) 
 
-//{
-//      USDBalance: myInput.value
-//      PesosToReceive: myComputed.value
-////
-  
+
 const phone = '+5491173642809'
-const myTextarea = ref("")
 
-myTextarea.value= `Quiero vender ${props.amounts.USDBalance} dolares para recibir ${props.amounts.PesosToReceive} pesos.`
 
+const messageSent = ref(props.amounts.message)
+const myTextarea = ref(`Mi nombre es ${props.amounts.fullName} y mi número de celular es ${props.amounts.cellPhone}.`)
 
 const enviar = () => {
-  let mensaje = myTextarea.value
-  if(mensaje.length > 0){
-        
-        if (!isNaN(phone)){
-            window.location = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + mensaje;
-        }else{
-            window.location = "https://api.whatsapp.com/send?text=" + mensaje;
-        }
-    }  
+  let mensaje = `${messageSent.value} ${myTextarea.value}`
+  if(mensaje.length > 0) {         
+    if (!isNaN(phone)) {
+      window.location = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + mensaje;
+    }else{
+      window.location = "https://api.whatsapp.com/send?text=" + mensaje;
+    }
+  }
 }
-    
-console.log(props.amounts)
-
 </script>
 <template>
   
@@ -60,8 +50,8 @@ console.log(props.amounts)
                     Qué quieres hacer ?? 😉
                 </div>
 
-                <div v-if="myTextarea" class="converMessageUser">
-                    {{ myTextarea }}
+                <div v-if="messageSent" class="converMessageUser">
+                    {{ props.amounts.message }}
                 </div>
                 <div class="message">
                     <textarea autofocus placeholder="Escribe un mensaje" v-model="myTextarea" rows="2"></textarea>
